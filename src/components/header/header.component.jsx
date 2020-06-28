@@ -1,18 +1,20 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import './header.styles.scss';
 
-const Header = () => {
+const Header = (props) => {
     return (
         <div className="header">
-            <Link to='/' className="logo">daily Drama</Link>
+            <Link to='/' className="logo"><span style={{ color: "#4285f4" }}>daily</span> Drama</Link>
             <div className="side">
                 <Link to='/about' className='option'>About</Link>
                 <Link to='/contact' className='option'>Contact</Link>
-                <Link to='/member' className='option'>Login</Link>
+                {props.location.pathname === '/member'
+                    ? null : <Link to='/member' className='option'>Log in</Link>}
             </div>
         </div>
     );
 }
 
-export default Header;
+export default withRouter(Header);

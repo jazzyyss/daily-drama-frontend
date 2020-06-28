@@ -11,9 +11,9 @@ function App() {
     <>
       <Header />
       <Switch>
-        <Route path='/member' component={MemberPage} />
-        <Route path='/about' component={AboutPage} />
-        <Route path='/contact' component={ContactPage} />
+        <Route exact path='/member' component={MemberPage} />
+        <Route exact path='/about' component={AboutPage} />
+        <Route exact path='/contact' component={ContactPage} />
         <Route exact path='/' component={HomePage} />
       </Switch>
     </>

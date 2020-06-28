@@ -1,0 +1,15 @@
+.form-input-container{
+    .form-input{
+        margin-bottom: .7rem;
+        width:50%;
+        line-height: 1.5rem;
+        border:none;
+        border-bottom: solid 1px black;
+        &::placeholder{
+            color: black;
+        }
+        &:focus::placeholder{
+            color: transparent;
+        }
+    }
+}

@@ -1,8 +1,13 @@
 import React from 'react';
-const MemberPage = () => {
+import './loginandsignup.styles.scss';
+import Login from '../../components/login/login.component';
+import Register from '../../components/register/register.component';
+const MemberPage = (props) => {
+
     return (
         <div className="member">
-            I am on loginsignup page
+            <Register />
+            <Login />
         </div>
     );
 }
