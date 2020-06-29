@@ -1,0 +1,15 @@
+.blog-header{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    .heading{
+        margin-left: 2rem;
+    }
+    .create-blog-option{
+        text-align: right;
+        margin: auto 0;
+        margin-right: 5rem;
+        color:#4285f4;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+}

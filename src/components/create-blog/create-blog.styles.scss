@@ -1,0 +1,87 @@
+.create-blog-container{
+    position: absolute;
+    width:99%;
+    height:80%;
+    padding:3rem 5rem;
+    box-sizing: border-box;
+    background-color: black;
+    opacity: .9;
+    .close-create-blog{
+        position: absolute;
+        color:#fff;
+        right:2rem;
+        top:2rem;
+        font-size: 1.2rem;
+        padding: .25rem .5rem;
+        cursor: pointer;
+    }
+    .create-blog{
+        opacity: 1;
+        height:92%; 
+        background-color: #4285f4;
+        .title{
+            text-align: center;
+            padding-top:1rem;
+            font-weight: 600;
+            padding-bottom: 1rem;
+        }
+        .blog-area{
+            overflow: hidden;
+            height: 90%;
+            form{
+                overflow: hidden;
+                height: 90%;
+                display: grid;
+                grid-template-columns: auto auto;
+                textarea{
+                    grid-row: 1/span 2;
+                    font-family: 'Times New Roman', Times, serif;
+                    padding:.5rem;
+                    margin:1rem 2rem;
+                    background-color:black;
+                    opacity:.7;
+                    border:none;
+                    color:#fff;
+                    line-height: 1.5rem;
+                    resize: none;
+                    width: 85%;
+                    height: 85%;
+                    font-size: 1.2rem;
+                }
+                .blog-input{
+                    border:none;
+                    background-color:black;
+                    opacity:.7;
+                    color:#fff;
+                    line-height: 2.5rem;
+                    margin-top:15%;
+                    margin-left: 10%;
+                    width:60%;
+                    justify-self: center;
+                    letter-spacing: .09rem;
+                }
+                .blog-button{
+                    border:none;
+                    margin-left: 35%;
+                    height:2rem;
+                    width:3.5rem;
+                    cursor: pointer;
+                    letter-spacing: .05rem;
+                    font-weight: 600;
+                    &:hover{
+                        background-color:#ddd;
+
+                    }
+                }
+            }
+        }
+    }
+}
+.blog-header{
+    .hide{
+        display: none;
+    }
+    .show{
+        display: block;
+    }
+}

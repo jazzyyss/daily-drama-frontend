@@ -6,7 +6,7 @@ import './header.styles.scss';
 const Header = (props) => {
     return (
         <div className="header">
-            <Link to='/' className="logo"><span style={{ color: "#4285f4" }}>daily</span> Drama</Link>
+            <div className="logo-container"><Link to='/' className="logo"><span style={{ color: "#4285f4" }}>daily</span> Drama</Link></div>
             <div className="side">
                 <Link to='/about' className='option'>About</Link>
                 <Link to='/contact' className='option'>Contact</Link>
