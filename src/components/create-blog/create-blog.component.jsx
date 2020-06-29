@@ -13,7 +13,6 @@ const CreateBlog = ({ flag, handleClick }) => {
             ...blogContent,
             [name]: value
         })
-        console.log([name], value);
     }
     const handleSubmit = e => {
         e.preventDefault();

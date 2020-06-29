@@ -1,11 +1,12 @@
 .create-blog-container{
-    position: absolute;
+    position: fixed;
+    top:4rem;
+    left:0.6rem;
     width:99%;
     height:80%;
     padding:3rem 5rem;
     box-sizing: border-box;
     background-color: black;
-    opacity: .9;
     .close-create-blog{
         position: absolute;
         color:#fff;
@@ -16,7 +17,6 @@
         cursor: pointer;
     }
     .create-blog{
-        opacity: 1;
         height:92%; 
         background-color: #4285f4;
         .title{

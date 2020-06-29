@@ -1,0 +1,18 @@
+.blog-for-preview{
+    margin-bottom: 1.2rem;
+    height: 10rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+.title{
+    background-image: linear-gradient(to right, lighten(#4285f4, 5), lighten(#4285f4, 30));
+    padding:0.2rem;
+    box-sizing: border-box;
+}
+.content{
+    font-family: 'Times New Roman', 'cursive';
+    background-image: linear-gradient(to bottom,#fff 4rem,#111 8rem,#111 20rem);
+    padding:0.2rem;
+    box-sizing: border-box;
+    text-align: justify;
+}
