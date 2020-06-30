@@ -18,6 +18,11 @@ const CreateBlog = ({ flag, handleClick }) => {
         e.preventDefault();
         handleClick();
         alert('blog posted');
+        setBlogContent({
+            ...blogContent,
+            title: '',
+            blog: ''
+        })
     }
     return (
         <div className={`create-blog-container ${classname}`}>

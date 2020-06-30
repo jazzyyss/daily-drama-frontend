@@ -1,8 +1,8 @@
 import React from 'react';
 import './form-button.styles.scss'
-const FormButton = ({ children, ...rest }) => {
+const FormButton = ({ children, commentButton, ...rest }) => {
     return (
-        <div className="button-container">
+        <div className={`button-container ${commentButton?'comment-button':''}`}>
             <button className="button" {...rest}>{children}</button>
         </div>
     );

@@ -6,7 +6,8 @@
     height:80%;
     padding:3rem 5rem;
     box-sizing: border-box;
-    background-color: black;
+    background-image: radial-gradient(#111,#444);
+    opacity: 0.999;
     .close-create-blog{
         position: absolute;
         color:#fff;
@@ -18,7 +19,7 @@
     }
     .create-blog{
         height:92%; 
-        background-color: #4285f4;
+        background-color: lighten(#4285f4,10);
         .title{
             text-align: center;
             padding-top:1rem;
