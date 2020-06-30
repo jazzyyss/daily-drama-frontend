@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { toast } from "react-toastify";
+import http from '../../services/httpservice';
 import FormInput from '../form-input/input.component';
-import './create-blog.styles.scss';
 import FormButton from '../form-button/form-button.component';
+import { apiUrl } from '../../config.json';
+import './create-blog.styles.scss';
 
 const CreateBlog = ({ flag, handleClick }) => {
     const classname = flag ? 'show' : 'hide';
@@ -14,10 +17,11 @@ const CreateBlog = ({ flag, handleClick }) => {
             [name]: value
         })
     }
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
         handleClick();
-        alert('blog posted');
+        const res = await http.post(apiUrl + 'blog', blogContent);
+        toast.info(res.data);
         setBlogContent({
             ...blogContent,
             title: '',

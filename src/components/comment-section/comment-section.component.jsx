@@ -1,20 +1,24 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
+import http from '../../services/httpservice';
 import FormButton from '../../components/form-button/form-button.component';
+import { apiUrl } from '../../config.json';
 import './comment-section.styles.scss';
 
-const CommentSection = () => {
-      const [commentState,setCommentState] = useState({comment:''});
-    const {comment} = commentState;
-    const handleChange = e =>{
-        const {value,name} = e.target;
+const CommentSection = ({ blogId }) => {
+    const [commentState, setCommentState] = useState({ comment: '' });
+    const { comment } = commentState;
+    const handleChange = e => {
+        const { value, name } = e.target;
         setCommentState({
             ...comment,
-            [name]:value
+            [name]: value
         });
     }
-    const handleSubmit = e =>{
+    const handleSubmit = async e => {
         e.preventDefault();
-        alert('comment inserted');
+        const res = await http.post(apiUrl + 'comments', { blogId, comment: comment })
+        console.log(res);
+        setCommentState({ comment: '' })
     }
     return (
         <div className="comment-section">
@@ -34,5 +38,5 @@ const CommentSection = () => {
         </div>
     );
 }
- 
+
 export default CommentSection;
