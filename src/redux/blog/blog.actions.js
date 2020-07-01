@@ -15,7 +15,7 @@ export const fetchBlogsFailure = errorMessage => ({
 });
 
 export const fetchBlogsAsync = _ => {
-    return async dispatch => {
+    return async (dispatch) => {
         dispatch(fetchBlogsStart());
         try {
             const blogs = await http.get(apiUrl + 'blog');

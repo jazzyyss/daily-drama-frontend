@@ -1,0 +1,6 @@
+const commentActionTypes = {
+    FETCH_COMMENT_START: 'FETCH_COMMENT_START',
+    FETCH_COMMENT_SUCCESS: 'FETCH_COMMENT_SUCCESS',
+    FETCH_COMMENT_FAILURE: 'FETCH_COMMENT_FAILURE'
+};
+export default commentActionTypes;
