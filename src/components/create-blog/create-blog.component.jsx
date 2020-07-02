@@ -20,8 +20,14 @@ const CreateBlog = ({ flag, handleClick }) => {
     const handleSubmit = async e => {
         e.preventDefault();
         handleClick();
-        const res = await http.post(apiUrl + 'blog', blogContent);
-        toast.info(res.data);
+        try {
+            const res = await http.post(apiUrl + 'blog', blogContent);
+            if (res.status === 200) toast.info('Blog added');
+            if (res.status && res.status !== 200) toast.error('Something went wrong')
+        } catch (err) {
+            return err ? toast.error('Something went wrong') : null;
+        }
+
         setBlogContent({
             ...blogContent,
             title: '',

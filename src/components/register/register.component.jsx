@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+import http from '../../services/httpservice';
+import { apiUrl } from '../../config.json';
 import FormInput from '../form-input/input.component';
 import FormButton from '../form-button/form-button.component';
 import './register.styles.scss';
@@ -10,9 +13,24 @@ const Register = () => {
         const { value, name } = e.target;
         setCredentials({ ...credentials, [name]: value })
     };
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
-        alert('form submitted');
+        if (password !== secondPassword) {
+            toast.error('password mismatch');
+            setCredentials({ ...credentials, password: '', secondPassword: '' })
+        } else {
+            try {
+                const res = await http.post(apiUrl + 'user', { name, email, password });
+                console.log(res);
+                (res.data === "User already registered.") ? toast.info("User already registered.") :
+                    toast.success(<div>You are registered successfully.<br />Please sign in to continue</div>);
+                setCredentials({ name: '', email: '', password: '', secondPassword: '' });
+            } catch (err) {
+                toast.error(<div>Something went wrong.<br />Please try again</div>);
+                setCredentials({ ...credentials, password: '', secondPassword: '' });
+            }
+        }
+
     };
     return (
         <div className="register">

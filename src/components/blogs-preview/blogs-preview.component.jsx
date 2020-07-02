@@ -9,9 +9,11 @@ const BlogPreview = ({ blogs }) => {
     return (
         <>
             <div className="blog-preview">
-                {blogs.data.map(blog =>
-                    <BlogForPreview key={blog._id} id={blog.id} {...blog} />
-                )}
+                {
+                    !blogs.data ? null :
+                        blogs.data.map(blog =>
+                            <BlogForPreview key={blog._id} id={blog.id} {...blog} />
+                        )}
             </div>
         </>
     );

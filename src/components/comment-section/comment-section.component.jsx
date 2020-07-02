@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
+import { toast } from 'react-toastify';
 import http from '../../services/httpservice';
+import auth from '../../services/authService';
 import FormButton from '../../components/form-button/form-button.component';
 import { apiUrl } from '../../config.json';
 import { fetchComments } from '../../redux/comment/comment.selector';
@@ -10,7 +12,6 @@ import './comment-section.styles.scss';
 const CommentSection = ({ blogId, comments }) => {
     const [commentState, setCommentState] = useState({ comment: '' });
     const { comment } = commentState;
-    const [nameState, setNameState] = useState({ name: 'jaspreet', email: 'jaspreetbrar1636@gmail.com' });
     const handleChange = e => {
         const { value, name } = e.target;
         setCommentState({
@@ -20,8 +21,14 @@ const CommentSection = ({ blogId, comments }) => {
     }
     const handleSubmit = async e => {
         e.preventDefault();
-        const res = await http.post(apiUrl + 'comments', { blogId, name: nameState.name, email: nameState.email, comment })
-        console.log(res);
+        const { name, email } = auth.getCurrentUser();
+        try {
+            const res = await http.post(apiUrl + 'comments', { blogId, name, email, comment })
+            if (res.status === 200) toast.info('Comment added');
+            if (res.status && res.status !== 200) toast.error('Something went wrong')
+        } catch (err) {
+            return err ? toast.error('Something went wrong') : null;
+        }
         setCommentState({ comment: '' })
     }
     return (

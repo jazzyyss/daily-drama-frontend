@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 import FormInput from '../form-input/input.component';
 import FormButton from '../form-button/form-button.component';
+import auth from '../../services/authService';
 import './login.styles.scss';
 
 const Login = () => {
@@ -10,9 +12,20 @@ const Login = () => {
         const { value, name } = e.target;
         setCredentials({ ...credentials, [name]: value })
     };
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
-        alert('form submitted');
+        try {
+            const res = await auth.login(credentials);
+            if (res) {
+                if (res.data.isJoi === true) toast.error(res.data.details[0].message);
+                if (res.data !== "") toast.error(res.data);
+            }
+            setCredentials({ email: '', password: '' });
+            window.location = "/";
+        } catch (err) {
+            console.log(err);
+            toast.error('Something went Wrong');
+        }
     };
     return (
         <div className="login">
