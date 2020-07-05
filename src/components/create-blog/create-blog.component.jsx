@@ -30,12 +30,11 @@ const CreateBlog = ({ flag, handleClick }) => {
         } catch (err) {
             return err ? toast.error('Something went wrong') : null;
         }
-
         setBlogContent({
             ...blogContent,
             title: '',
             blog: ''
-        })
+        });
     }
     return (
         <div className={`create-blog-container ${classname}`}>
@@ -45,7 +44,7 @@ const CreateBlog = ({ flag, handleClick }) => {
                 <div className="blog-area">
                     <form onSubmit={handleSubmit}>
                         <textarea name="blog" value={blog} onChange={handleChange} placeholder="It's time to blog..." required></textarea>
-                        <FormInput className="blog-input" type="text" name="title" handleChange={handleChange} value={title} placeholder="T i t l e..." required />
+                        <FormInput className="blog-input" type="text" name="title" handleChange={handleChange} value={title} placeholder="Title..." required />
                         <FormButton className="blog-button" type="submit" name="submit">BLOG</FormButton>
                     </form>
                 </div>

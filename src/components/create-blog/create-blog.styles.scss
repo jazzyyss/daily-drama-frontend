@@ -30,13 +30,13 @@
             overflow: hidden;
             height: 90%;
             form{
+                font-family: 'Raleway', sans-serif;
                 overflow: hidden;
                 height: 90%;
                 display: grid;
                 grid-template-columns: auto auto;
                 textarea{
                     grid-row: 1/span 2;
-                    font-family: 'Times New Roman', Times, serif;
                     padding:.5rem;
                     margin:1rem 2rem;
                     background-color:black;

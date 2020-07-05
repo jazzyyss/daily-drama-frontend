@@ -1,4 +1,6 @@
 import React from 'react';
+import './blog-with-id.styles.scss';
+
 const BlogWithId = ({ blog }) => {
     const convertToLocalTimeZone = (time) => {
         let h = parseInt(time.substring(0, 2));
@@ -21,11 +23,14 @@ const BlogWithId = ({ blog }) => {
         }
         return `${h}:${m}`
     }
+
     return (
         <>
             <h1 className="blog-heading">{blog.title}</h1>
-            By: {blog.name}<br />email: {blog.email}<br />on: {blog.date.slice(0, 10).split('-').reverse().join('-')}
-            &nbsp;&nbsp;at: {convertToLocalTimeZone(blog.date.substring(11, 16))}
+            <div className="creds">
+                By: {blog.name}<br />E-mail: {blog.email}<br />on: {blog.date.slice(0, 10).split('-').reverse().join('-')}
+                &nbsp;&nbsp;at: {convertToLocalTimeZone(blog.date.substring(11, 16))}
+            </div>
             <div className="blog-content">{blog.blog}</div>
 
         </>
