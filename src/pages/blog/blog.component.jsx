@@ -24,8 +24,12 @@ class BlogPage extends Component {
         const { fetchCommentsAsync } = this.props;
         fetchCommentsAsync(this.state.blogId);
         const { data } = await http.get(`${apiUrl}blog/${this.state.blogId}`);
-        await this.setState({ blog: data });
-        this.setState({ isLoading: false });
+        if (!data.blog) {
+            return window.location = '/not-found'
+        } else {
+            await this.setState({ blog: data });
+            this.setState({ isLoading: false });
+        }
     }
     render() {
         const { isLoaded } = this.props;

@@ -5,6 +5,7 @@ import FormInput from '../form-input/input.component';
 import FormButton from '../form-button/form-button.component';
 import { apiUrl } from '../../config.json';
 import './create-blog.styles.scss';
+import auth from '../../services/authService';
 
 const CreateBlog = ({ flag, handleClick }) => {
     const classname = flag ? 'show' : 'hide';
@@ -21,7 +22,9 @@ const CreateBlog = ({ flag, handleClick }) => {
         e.preventDefault();
         handleClick();
         try {
-            const res = await http.post(apiUrl + 'blog', blogContent);
+            const { name, email } = await auth.getCurrentUser();
+            const res = await http.post(apiUrl + 'blog', { blogContent, name, email });
+            console.log(res);
             if (res.status === 200) toast.info('Blog added');
             if (res.status && res.status !== 200) toast.error('Something went wrong')
         } catch (err) {
