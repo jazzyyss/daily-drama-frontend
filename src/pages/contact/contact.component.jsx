@@ -12,7 +12,7 @@ const ContactPage = () => {
     };
     const handleSubmit = e => {
         e.preventDefault();
-        alert('form submitted');
+        alert('service unavailable at the moment');
     };
     return (
         <div className="contact">

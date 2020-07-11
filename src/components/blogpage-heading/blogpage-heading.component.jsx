@@ -10,7 +10,7 @@ const BlogpageHeader = () => {
     return (
         <div className="blog-header">
             <h1 className="heading">Blogs</h1>
-            <div className="create-blog-option" onClick={() => { handleClick() }}>create</div>
+            <div className="create-blog-option"><span onClick={() => { handleClick() }}>create</span></div>
             <CreateBlog flag={createVar} handleClick={handleClick} />
         </div>
     );
